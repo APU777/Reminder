@@ -29,7 +29,7 @@ namespace WPF_2_
                 
                 Button d = new Button();
                 d.Width = 50;
-                d.Height = 50;
+                d.Height = 100;
                 d.Background = Brushes.Pink;
                 ListBoxC1.Items.Add(d);
             }
