@@ -161,9 +161,7 @@
                 </Grid>
             </Grid>
         </Grid>
-        <ListBox x:Name="ListBoxC1" Grid.Column="1">
-            <Button Background="#FFE24E4E" Height="50" Width="50"/>
-        </ListBox>
+        <ListBox x:Name="ListBoxC1" Grid.Column="1" SizeChanged="ListBoxC1_SizeChanged" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
     </Grid>
 
 </Window>
