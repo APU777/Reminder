@@ -29,21 +29,51 @@ namespace WPF_2_
          
             for (int i = 0; i < 10; ++i)
             {
-                UniformGrid uniform = new UniformGrid();
-             
+                Grid grid = new Grid();
+                grid.ShowGridLines = true;
+                for(int j = 0; j < 30; ++j)
+                {
+                    ColumnDefinition ColD = new ColumnDefinition();
+                    grid.ColumnDefinitions.Add(ColD);
+                    if (j < 10)
+                    {
+                        RowDefinition RowD = new RowDefinition();
+                        grid.RowDefinitions.Add(RowD);
+                    }
+                }
                 Label d = new Label();
                 d.Background = Brushes.WhiteSmoke;
                 d.BorderBrush = Brushes.Black;
                 d.BorderThickness = new Thickness(5);
-                d.Content = uniform;
-                uniform.Rows = 2;
-                uniform.Columns = 14;
-                Rectangle s = new Rectangle();
-                s.Width = 50;
-                s.Height = 50;
+                d.Content = grid;
+                
+                 
+                
+                Ellipse s = new Ellipse();
+                s.Width = 80;
+                s.Height = 80;
                 s.Fill = Brushes.Red;
-                uniform.Children.Add(s);
-                uniform.Children.Add(new TextBlock(new Run("123")));
+                grid.Children.Add(s);
+                TextBlock TB = new TextBlock();
+                TB.Text = "1234567891011121314151617181920";
+                //TB.FontSize
+                TB.Background = Brushes.Yellow;
+                TB.Width = 1000;
+               
+                Grid.SetRow(s, 0);
+                Grid.SetRowSpan(s, 10);
+                Grid.SetColumn(s, 0);
+                Grid.SetColumnSpan(s, 8);
+
+                Grid.SetRow(TB, 0);
+                Grid.SetRowSpan(TB, 5);
+                Grid.SetColumn(TB, 8);
+                Grid.SetColumnSpan(TB, 17);
+
+
+                //grid.Children.Add(s);
+
+                 grid.Children.Add(TB);
 
                 ListBoxC1.Items.Add(d);
             }
