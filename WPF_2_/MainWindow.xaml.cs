@@ -29,7 +29,7 @@ namespace WPF_2_
             for (int i = 0; i < 10; ++i)
             {
                 Grid grid = new Grid();
-          //      grid.ShowGridLines = true;
+                grid.ShowGridLines = true;
                 for(int j = 0; j < 30; ++j)
                 {
                     ColumnDefinition ColD = new ColumnDefinition();
@@ -41,11 +41,7 @@ namespace WPF_2_
                         grid.RowDefinitions.Add(RowD);
                     }
                 }
-                Label d = new Label();
-                d.Background = Brushes.WhiteSmoke;
-                d.BorderBrush = Brushes.Black;
-                d.BorderThickness = new Thickness(5);
-                d.Content = grid;
+              
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 Ellipse O_Ellipse = new Ellipse();
                 O_Ellipse.Width = 80;
@@ -77,15 +73,15 @@ namespace WPF_2_
                 Grid.SetColumn(O_Ellipse, 0);
                 Grid.SetColumnSpan(O_Ellipse, 8);
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-                Grid.SetRow(TBTitle, 0);
-                Grid.SetRowSpan(TBTitle, 5);
-                Grid.SetColumn(TBTitle, 11);
-                Grid.SetColumnSpan(TBTitle, 22);
+                //Grid.SetRow(TBTitle, 0);
+                //Grid.SetRowSpan(TBTitle, 5);
+                //Grid.SetColumn(TBTitle, 11);
+                //Grid.SetColumnSpan(TBTitle, 22);
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-                Grid.SetRow(TBText, 5);
-                Grid.SetRowSpan(TBText, 5);
-                Grid.SetColumn(TBText, 11);
-                Grid.SetColumnSpan(TBText,22);
+                //Grid.SetRow(TBText, 5);
+                //Grid.SetRowSpan(TBText, 5);
+                //Grid.SetColumn(TBText, 11);
+                //Grid.SetColumnSpan(TBText,22);
                 /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
                 //Grid.SetRow(TBYear, 0);
                 //Grid.SetRowSpan(TBYear, 2);
@@ -96,10 +92,17 @@ namespace WPF_2_
                 
              
                 grid.Children.Add(O_Ellipse);
-                grid.Children.Add(TBTitle);
-                grid.Children.Add(TBText);
-            //    grid.Children.Add(TBYear);
+                //grid.Children.Add(TBTitle);
+                //grid.Children.Add(TBText);
+                //    grid.Children.Add(TBYear);
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                grid.Background = Brushes.Blue;
+                Label d = new Label();
+                d.Background = Brushes.WhiteSmoke;
+                d.BorderBrush = Brushes.Black;
+                d.BorderThickness = new Thickness(5);
+                d.Content = grid;
+
                 ListBoxC1.Items.Add(d);
             }
         }
