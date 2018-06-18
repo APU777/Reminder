@@ -60,41 +60,41 @@ namespace WPF_2_
                 TBText.FontSize = 15;
                 //TBText.Background = Brushes.Blue;
                 TBText.TextWrapping = TextWrapping.Wrap;
-              //  TBText.Width = 1000;
+                //  TBText.Width = 1000;
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                //TextBlock TBYear = new TextBlock();
-                //TBYear.Text = "2018";
-                //TBYear.FontFamily = new FontFamily("Comic Sans MS");
-                //TBYear.FontSize = 15;
-                //TBYear.Background = Brushes.Pink;
+                TextBlock TBYear = new TextBlock();
+                TBYear.Text = "2018";
+                TBYear.FontFamily = new FontFamily("Comic Sans MS");
+                TBYear.FontSize = 15;
+                TBYear.Background = Brushes.Pink;
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 Grid.SetRow(O_Ellipse, 0);
                 Grid.SetRowSpan(O_Ellipse, 10);
                 Grid.SetColumn(O_Ellipse, 0);
                 Grid.SetColumnSpan(O_Ellipse, 8);
-/*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-                //Grid.SetRow(TBTitle, 0);
-                //Grid.SetRowSpan(TBTitle, 5);
-                //Grid.SetColumn(TBTitle, 11);
-                //Grid.SetColumnSpan(TBTitle, 22);
-/*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-                //Grid.SetRow(TBText, 5);
-                //Grid.SetRowSpan(TBText, 5);
-                //Grid.SetColumn(TBText, 11);
-                //Grid.SetColumnSpan(TBText,22);
                 /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-                //Grid.SetRow(TBYear, 0);
-                //Grid.SetRowSpan(TBYear, 2);
-                //Grid.SetColumn(TBYear, 26);
-                //Grid.SetColumnSpan(TBYear, 5);
+                Grid.SetRow(TBTitle, 0);
+                Grid.SetRowSpan(TBTitle, 5);
+                Grid.SetColumn(TBTitle, 11);
+                Grid.SetColumnSpan(TBTitle, 22);
+                /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+                Grid.SetRow(TBText, 5);
+                Grid.SetRowSpan(TBText, 5);
+                Grid.SetColumn(TBText, 11);
+                Grid.SetColumnSpan(TBText, 22);
+                /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+                Grid.SetRow(TBYear, 0);
+                Grid.SetRowSpan(TBYear, 2);
+                Grid.SetColumn(TBYear, 26);
+                Grid.SetColumnSpan(TBYear, 5);
 
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                
-             
+
+
                 grid.Children.Add(O_Ellipse);
-                //grid.Children.Add(TBTitle);
-                //grid.Children.Add(TBText);
-                //    grid.Children.Add(TBYear);
+                grid.Children.Add(TBTitle);
+                grid.Children.Add(TBText);
+                grid.Children.Add(TBYear);
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 grid.Background = Brushes.Blue;
                 Label d = new Label();
@@ -102,6 +102,7 @@ namespace WPF_2_
                 d.BorderBrush = Brushes.Black;
                 d.BorderThickness = new Thickness(5);
                 d.Content = grid;
+                d.HorizontalContentAlignment = HorizontalAlignment.Stretch;
 
                 ListBoxC1.Items.Add(d);
             }
