@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_2_"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="900" MinWidth="900" MinHeight="550">
+        Title="MainWindow" Height="550" Width="900" MinWidth="900" MinHeight="550" WindowState="Maximized">
     <Window.Resources>
         <Style x:Key="GlassButton" TargetType="Button">
             <Setter Property="Template">

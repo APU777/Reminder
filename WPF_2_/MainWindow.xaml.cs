@@ -71,22 +71,22 @@ namespace WPF_2_
                 Grid.SetRow(O_Ellipse, 0);
                 Grid.SetRowSpan(O_Ellipse, 10);
                 Grid.SetColumn(O_Ellipse, 0);
-                Grid.SetColumnSpan(O_Ellipse, 8);
+                Grid.SetColumnSpan(O_Ellipse, 6);
                 /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
                 Grid.SetRow(TBTitle, 0);
                 Grid.SetRowSpan(TBTitle, 5);
-                Grid.SetColumn(TBTitle, 11);
-                Grid.SetColumnSpan(TBTitle, 22);
+                Grid.SetColumn(TBTitle, 6);
+                Grid.SetColumnSpan(TBTitle, 20);
                 /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
                 Grid.SetRow(TBText, 5);
                 Grid.SetRowSpan(TBText, 5);
-                Grid.SetColumn(TBText, 11);
-                Grid.SetColumnSpan(TBText, 22);
+                Grid.SetColumn(TBText, 6);
+                Grid.SetColumnSpan(TBText, 18);
                 /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
                 Grid.SetRow(TBYear, 0);
                 Grid.SetRowSpan(TBYear, 2);
-                Grid.SetColumn(TBYear, 26);
-                Grid.SetColumnSpan(TBYear, 5);
+                Grid.SetColumn(TBYear, 27);
+                Grid.SetColumnSpan(TBYear, 4);
 
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -126,11 +126,12 @@ namespace WPF_2_
         private void ListBoxC1_SizeChanged(object sender, SizeChangedEventArgs e)
         {
            // MessageBox.Show(ListBoxC1.ActualHeight.ToString());
-            foreach (var LBC1 in ListBoxC1.Items)
+            foreach (Label LBC1 in ListBoxC1.Items)
             {
-                //MessageBox.Show(((Button)LBC1).Width.ToString());
-                ((Label)LBC1).Width = ListBoxC1.ActualWidth - 30;
-                ((Label)LBC1).Height = 100;
+              LBC1.Width = ListBoxC1.ActualWidth - 30;
+              LBC1.Height = 100;
+                foreach (var LG in LBC1.)
+                    MessageBox.Show(LG..ToString());
             }
         }
     }
