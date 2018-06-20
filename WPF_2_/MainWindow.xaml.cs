@@ -21,6 +21,7 @@ namespace WPF_2_
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool _CheckSize = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -81,7 +82,7 @@ namespace WPF_2_
                 Grid.SetRow(TBText, 5);
                 Grid.SetRowSpan(TBText, 5);
                 Grid.SetColumn(TBText, 6);
-                Grid.SetColumnSpan(TBText, 18);
+                Grid.SetColumnSpan(TBText, 20);
                 /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
                 Grid.SetRow(TBYear, 0);
                 Grid.SetRowSpan(TBYear, 2);
@@ -125,14 +126,19 @@ namespace WPF_2_
 
         private void ListBoxC1_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-           // MessageBox.Show(ListBoxC1.ActualHeight.ToString());
+            // MessageBox.Show(ListBoxC1.ActualHeight.ToString());
             foreach (Label LBC1 in ListBoxC1.Items)
             {
-              LBC1.Width = ListBoxC1.ActualWidth - 30;
-              LBC1.Height = 100;
-                foreach (var LG in LBC1.)
-                    MessageBox.Show(LG..ToString());
+                LBC1.Width = ListBoxC1.ActualWidth - 30;
+                LBC1.Height = 100;
+                if (_CheckSize)
+                {
+                    Grid.SetColumnSpan(((Ellipse)((Grid)LBC1.Content).Children[0]), 8);
+                    Grid.SetColumn(((TextBlock)((Grid)LBC1.Content).Children[1]), 8);
+                    Grid.SetColumn(((TextBlock)((Grid)LBC1.Content).Children[2]), 8);
+                }
             }
+            _CheckSize = true;
         }
     }
 }
