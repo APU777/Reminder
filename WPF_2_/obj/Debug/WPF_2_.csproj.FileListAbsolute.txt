@@ -34,3 +34,21 @@ C:\Users\Admin\Desktop\ReminderGit\WPF_2_\obj\Debug\WPF_2_.csproj.GenerateResour
 C:\Users\Admin\Desktop\ReminderGit\WPF_2_\obj\Debug\WPF_2_.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\ReminderGit\WPF_2_\obj\Debug\WPF_2_.exe
 C:\Users\Admin\Desktop\ReminderGit\WPF_2_\obj\Debug\WPF_2_.pdb
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\bin\Debug\WPF_2_.exe.config
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\bin\Debug\WPF_2_.exe
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\bin\Debug\WPF_2_.pdb
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\WPF_2_.csprojAssemblyReference.cache
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\MainWindow.g.cs
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\App.g.cs
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\WPF_2__MarkupCompile.cache
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\WPF_2__MarkupCompile.lref
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\App.baml
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\Dictionary1.baml
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\MainWindow.baml
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\Properties\Dictionary1.baml
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\WPF_2_.g.resources
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\WPF_2_.Properties.Resources.resources
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\WPF_2_.csproj.GenerateResource.cache
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\WPF_2_.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\WPF_2_.exe
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\WPF_2_.pdb

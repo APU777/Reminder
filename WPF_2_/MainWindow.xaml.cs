@@ -53,6 +53,7 @@ namespace WPF_2_
                 TBTitle.Text = "1234567891011121314151617181920";
                 TBTitle.FontFamily = new FontFamily("Comic Sans MS");
                 TBTitle.FontSize = 27;
+                TBTitle.TextWrapping = TextWrapping.Wrap;
                 //TBTitle.Background = Brushes.Yellow;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 TextBlock TBText = new TextBlock();
@@ -66,8 +67,33 @@ namespace WPF_2_
                 TextBlock TBYear = new TextBlock();
                 TBYear.Text = "2018";
                 TBYear.FontFamily = new FontFamily("Comic Sans MS");
-                TBYear.FontSize = 15;
+                TBYear.FontSize = 17;
+                TBYear.TextAlignment = TextAlignment.Center;
                 TBYear.Background = Brushes.Pink;
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                TextBlock TBMonth = new TextBlock();
+                TBMonth.Text = "September";
+                TBMonth.FontFamily = new FontFamily("Comic Sans MS");
+                TBMonth.FontSize = 12;
+                TBMonth.FontWeight = FontWeights.Bold;
+                TBMonth.TextAlignment = TextAlignment.Center;
+                TBMonth.Background = Brushes.Pink;
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                TextBlock TBDay = new TextBlock();
+                TBDay.Text = "30";
+                TBDay.FontFamily = new FontFamily("Comic Sans MS");
+                TBDay.FontSize = 20;
+                TBDay.FontWeight = FontWeights.Bold;
+                TBDay.TextAlignment = TextAlignment.Center;
+                TBDay.Background = Brushes.Pink;
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                TextBlock TBTxDay = new TextBlock();
+                TBTxDay.Text = "Wednesday";
+                TBTxDay.FontFamily = new FontFamily("Comic Sans MS");
+                TBTxDay.FontSize = 12;
+                TBTxDay.FontWeight = FontWeights.Bold;
+                TBTxDay.TextAlignment = TextAlignment.Center;
+                TBTxDay.Background = Brushes.Pink;
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 Grid.SetRow(O_Ellipse, 0);
                 Grid.SetRowSpan(O_Ellipse, 10);
@@ -85,17 +111,32 @@ namespace WPF_2_
                 Grid.SetColumnSpan(TBText, 20);
                 /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
                 Grid.SetRow(TBYear, 0);
-                Grid.SetRowSpan(TBYear, 2);
-                Grid.SetColumn(TBYear, 27);
+                Grid.SetRowSpan(TBYear, 3);
+                Grid.SetColumn(TBYear, 26);
                 Grid.SetColumnSpan(TBYear, 4);
-
+                /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+                Grid.SetRow(TBMonth, 3);
+                Grid.SetRowSpan(TBMonth, 3);
+                Grid.SetColumn(TBMonth, 26);
+                Grid.SetColumnSpan(TBMonth, 4);
+                /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+                Grid.SetRow(TBDay, 5);
+                Grid.SetRowSpan(TBDay, 3);
+                Grid.SetColumn(TBDay, 26);
+                Grid.SetColumnSpan(TBDay, 4);
+                /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+                Grid.SetRow(TBTxDay, 8);
+                Grid.SetRowSpan(TBTxDay, 2);
+                Grid.SetColumn(TBTxDay, 26);
+                Grid.SetColumnSpan(TBTxDay, 4);
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
                 grid.Children.Add(O_Ellipse);
                 grid.Children.Add(TBTitle);
                 grid.Children.Add(TBText);
                 grid.Children.Add(TBYear);
+                grid.Children.Add(TBMonth);
+                grid.Children.Add(TBDay);
+                grid.Children.Add(TBTxDay);
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 grid.Background = Brushes.Blue;
                 Label d = new Label();
