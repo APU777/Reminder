@@ -164,9 +164,9 @@ namespace WPF_2_
         {
             
         }
-
         private void ListBoxC1_SizeChanged(object sender, SizeChangedEventArgs e)
         {
+            
             // MessageBox.Show(ListBoxC1.ActualHeight.ToString());
             foreach (Label LBC1 in ListBoxC1.Items)
             {
@@ -176,10 +176,25 @@ namespace WPF_2_
                 {
                     Grid.SetColumnSpan(((Ellipse)((Grid)LBC1.Content).Children[0]), 8);
                     Grid.SetColumn(((TextBlock)((Grid)LBC1.Content).Children[1]), 8);
+                    Grid.SetColumnSpan(((TextBlock)((Grid)LBC1.Content).Children[1]), 18);
                     Grid.SetColumn(((TextBlock)((Grid)LBC1.Content).Children[2]), 8);
+                    Grid.SetColumnSpan(((TextBlock)((Grid)LBC1.Content).Children[2]), 18);
+                    ((TextBlock)((Grid)LBC1.Content).Children[4]).Text = ((TextBlock)((Grid)LBC1.Content).Children[4]).Text.Substring(0, 3);
+                    ((TextBlock)((Grid)LBC1.Content).Children[6]).Text = ((TextBlock)((Grid)LBC1.Content).Children[6]).Text.Substring(0, 3);
+
+                }
+                else
+                {
+                    Grid.SetColumnSpan(((Ellipse)((Grid)LBC1.Content).Children[0]), 6);
+                    Grid.SetColumn(((TextBlock)((Grid)LBC1.Content).Children[1]), 6);
+                    Grid.SetColumnSpan(((TextBlock)((Grid)LBC1.Content).Children[1]), 20);
+                    Grid.SetColumn(((TextBlock)((Grid)LBC1.Content).Children[2]), 6);
+                    Grid.SetColumnSpan(((TextBlock)((Grid)LBC1.Content).Children[2]), 20);
+                    ((TextBlock)((Grid)LBC1.Content).Children[4]).Text = "September";
+                    ((TextBlock)((Grid)LBC1.Content).Children[6]).Text = "Wednesday";
                 }
             }
-            _CheckSize = true;
+           _CheckSize = !_CheckSize;
         }
     }
 }
