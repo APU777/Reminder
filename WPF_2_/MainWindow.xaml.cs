@@ -26,11 +26,12 @@ namespace WPF_2_
         {
             InitializeComponent();
             Title = "Reminder";
-         
+            Class1.SB();
             for (int i = 0; i < 10; ++i)
             {
+                
                 Grid grid = new Grid();
-                grid.ShowGridLines = true;
+                grid.ShowGridLines = false;
                 for(int j = 0; j < 30; ++j)
                 {
                     ColumnDefinition ColD = new ColumnDefinition();
@@ -47,8 +48,8 @@ namespace WPF_2_
                 Ellipse O_Ellipse = new Ellipse();
                 O_Ellipse.Width = 80;
                 O_Ellipse.Height = 80;
-                O_Ellipse.Fill = Brushes.Red;
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                O_Ellipse.Fill = new ImageBrush(new BitmapImage(new Uri(@"C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\Image\mrPcoZytokQ.jpg", UriKind.Relative)));
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 TextBlock TBTitle = new TextBlock();
                 TBTitle.Text = "1234567891011121314151617181920";
                 TBTitle.FontFamily = new FontFamily("Comic Sans MS");
@@ -69,7 +70,7 @@ namespace WPF_2_
                 TBYear.FontFamily = new FontFamily("Comic Sans MS");
                 TBYear.FontSize = 17;
                 TBYear.TextAlignment = TextAlignment.Center;
-                TBYear.Background = Brushes.Pink;
+                //TBYear.Background = Brushes.Pink;
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 TextBlock TBMonth = new TextBlock();
                 TBMonth.Text = "September";
@@ -77,7 +78,7 @@ namespace WPF_2_
                 TBMonth.FontSize = 12;
                 TBMonth.FontWeight = FontWeights.Bold;
                 TBMonth.TextAlignment = TextAlignment.Center;
-                TBMonth.Background = Brushes.Pink;
+               // TBMonth.Background = Brushes.Pink;
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 TextBlock TBDay = new TextBlock();
                 TBDay.Text = "30";
@@ -85,7 +86,7 @@ namespace WPF_2_
                 TBDay.FontSize = 20;
                 TBDay.FontWeight = FontWeights.Bold;
                 TBDay.TextAlignment = TextAlignment.Center;
-                TBDay.Background = Brushes.Pink;
+             //   TBDay.Background = Brushes.Pink;
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 TextBlock TBTxDay = new TextBlock();
                 TBTxDay.Text = "Wednesday";
@@ -93,7 +94,7 @@ namespace WPF_2_
                 TBTxDay.FontSize = 12;
                 TBTxDay.FontWeight = FontWeights.Bold;
                 TBTxDay.TextAlignment = TextAlignment.Center;
-                TBTxDay.Background = Brushes.Pink;
+              //  TBTxDay.Background = Brushes.Pink;
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 Grid.SetRow(O_Ellipse, 0);
                 Grid.SetRowSpan(O_Ellipse, 10);
@@ -138,7 +139,7 @@ namespace WPF_2_
                 grid.Children.Add(TBDay);
                 grid.Children.Add(TBTxDay);
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                grid.Background = Brushes.Blue;
+                //grid.Background = Brushes.Blue;
                 Label d = new Label();
                 d.Background = Brushes.WhiteSmoke;
                 d.BorderBrush = Brushes.Black;
