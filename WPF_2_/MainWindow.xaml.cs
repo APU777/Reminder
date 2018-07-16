@@ -22,14 +22,47 @@ namespace WPF_2_
     public partial class MainWindow : Window
     {
         bool _CheckSize = false;
+        public void _Status(bool _Look, Visibility _VISIB)
+        {
+            L_Save.IsEnabled = _Look;
+            L_Save.Visibility = _VISIB;
+            L_Color.IsEnabled = _Look;
+            L_Color.Visibility = _VISIB;
+            L_Bold.IsEnabled = _Look;
+            L_Bold.Visibility = _VISIB;
+            L_TextSize.IsEnabled = _Look;
+            L_TextSize.Visibility = _VISIB;
+            E_CircleFrame.IsEnabled = _Look;
+            E_CircleFrame.Visibility = _VISIB;
+            T_Title.IsEnabled = _Look;
+            T_Title.Visibility = _VISIB;
+            L_TimeTitle.IsEnabled = _Look;
+            L_TimeTitle.Visibility = _VISIB;
+            L_DateTitle.IsEnabled = _Look;
+            L_DateTitle.Visibility = _VISIB;
+            TextBoxBigTEXT_BLOB.IsEnabled = _Look;
+            TextBoxBigTEXT_BLOB.Visibility = _VISIB;
+            L_TimeFuture.IsEnabled = _Look;
+            L_TimeFuture.Visibility = _VISIB;
+            B_Plus.IsEnabled = _Look;
+            B_Plus.Visibility = _VISIB;
+            B_Minus.IsEnabled = _Look;
+            B_Minus.Visibility = _VISIB;
+            L_MonthFuture.IsEnabled = _Look;
+            L_MonthFuture.Visibility = _VISIB;
+            DP_DateFuture.IsEnabled = _Look;
+            DP_DateFuture.Visibility = _VISIB;
+        }
         public MainWindow()
         {
             InitializeComponent();
+            L_Bold.Visibility = Visibility.Hidden;
+            ////////////////////////////////////
+            _Status(false, Visibility.Hidden);
+            ///////////////////////////////////
             Title = "Reminder";
-            Class1.SB();
             for (int i = 0; i < 10; ++i)
             {
-                
                 Grid grid = new Grid();
                 grid.ShowGridLines = false;
                 for(int j = 0; j < 30; ++j)
@@ -43,13 +76,12 @@ namespace WPF_2_
                         grid.RowDefinitions.Add(RowD);
                     }
                 }
-              
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 Ellipse O_Ellipse = new Ellipse();
                 O_Ellipse.Width = 80;
                 O_Ellipse.Height = 80;
                 O_Ellipse.Fill = new ImageBrush(new BitmapImage(new Uri(@"C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\Image\mrPcoZytokQ.jpg", UriKind.Relative)));
-                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 TextBlock TBTitle = new TextBlock();
                 TBTitle.Text = "1234567891011121314151617181920";
                 TBTitle.FontFamily = new FontFamily("Comic Sans MS");
@@ -197,5 +229,22 @@ namespace WPF_2_
             }
            _CheckSize = !_CheckSize;
         }
+
+
+
+
+        private void Window_MouseMove(object sender, MouseEventArgs e)
+        {
+            ((Label)ListBoxC1.Items[0]).MouseDown += delegate (object Sender, MouseButtonEventArgs E)
+            {
+                if (((Label)ListBoxC1.Items[0]).IsMouseOver)
+                {
+                    MessageBox.Show("777");
+                    _Status(true, Visibility.Visible);
+                }
+            };
+        }
     }
+
+   
 }
