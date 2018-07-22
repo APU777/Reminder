@@ -53,6 +53,25 @@ namespace WPF_2_
             DP_DateFuture.IsEnabled = _Look;
             DP_DateFuture.Visibility = _VISIB;
         }
+        public void _CheckStatus()
+        {
+                foreach (Label LBC1 in ListBoxC1.Items)
+                {
+                    LBC1.MouseLeftButtonDown += delegate (object Sender, MouseButtonEventArgs E)
+                    {
+                        if (LBC1.IsMouseOver)
+                        {
+                            if(!L_Save.IsEnabled)
+                                _Status(true, Visibility.Visible);
+                        }
+                    };
+                    LBC1.MouseRightButtonDown += delegate (object Sender, MouseButtonEventArgs E)
+                    {
+                        if (L_Save.IsEnabled)
+                            _Status(false, Visibility.Hidden);
+                    };
+                }
+        }
         public MainWindow()
         {
             InitializeComponent();
@@ -232,17 +251,11 @@ namespace WPF_2_
 
 
 
-
+   
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
-            ((Label)ListBoxC1.Items[0]).MouseDown += delegate (object Sender, MouseButtonEventArgs E)
-            {
-                if (((Label)ListBoxC1.Items[0]).IsMouseOver)
-                {
-                    MessageBox.Show("777");
-                    _Status(true, Visibility.Visible);
-                }
-            };
+            _CheckStatus();
+
         }
     }
 
