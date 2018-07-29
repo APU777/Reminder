@@ -21,57 +21,8 @@ namespace WPF_2_
     /// </summary>
     public partial class MainWindow : Window
     {
-        bool _CheckSize = false;
-        public void _Status(bool _Look, Visibility _VISIB)
-        {
-            L_Save.IsEnabled = _Look;
-            L_Save.Visibility = _VISIB;
-            L_Color.IsEnabled = _Look;
-            L_Color.Visibility = _VISIB;
-            L_Bold.IsEnabled = _Look;
-            L_Bold.Visibility = _VISIB;
-            L_TextSize.IsEnabled = _Look;
-            L_TextSize.Visibility = _VISIB;
-            E_CircleFrame.IsEnabled = _Look;
-            E_CircleFrame.Visibility = _VISIB;
-            T_Title.IsEnabled = _Look;
-            T_Title.Visibility = _VISIB;
-            L_TimeTitle.IsEnabled = _Look;
-            L_TimeTitle.Visibility = _VISIB;
-            L_DateTitle.IsEnabled = _Look;
-            L_DateTitle.Visibility = _VISIB;
-            TextBoxBigTEXT_BLOB.IsEnabled = _Look;
-            TextBoxBigTEXT_BLOB.Visibility = _VISIB;
-            L_TimeFuture.IsEnabled = _Look;
-            L_TimeFuture.Visibility = _VISIB;
-            B_Plus.IsEnabled = _Look;
-            B_Plus.Visibility = _VISIB;
-            B_Minus.IsEnabled = _Look;
-            B_Minus.Visibility = _VISIB;
-            L_MonthFuture.IsEnabled = _Look;
-            L_MonthFuture.Visibility = _VISIB;
-            DP_DateFuture.IsEnabled = _Look;
-            DP_DateFuture.Visibility = _VISIB;
-        }
-        public void _CheckStatus()
-        {
-                foreach (Label LBC1 in ListBoxC1.Items)
-                {
-                    LBC1.MouseLeftButtonDown += delegate (object Sender, MouseButtonEventArgs E)
-                    {
-                        if (LBC1.IsMouseOver)
-                        {
-                            if(!L_Save.IsEnabled)
-                                _Status(true, Visibility.Visible);
-                        }
-                    };
-                    LBC1.MouseRightButtonDown += delegate (object Sender, MouseButtonEventArgs E)
-                    {
-                        if (L_Save.IsEnabled)
-                            _Status(false, Visibility.Hidden);
-                    };
-                }
-        }
+        private bool _CheckSize = false;
+        private int _ScreenSizeWidth = (int)SystemParameters.PrimaryScreenWidth;
         public MainWindow()
         {
             InitializeComponent();
@@ -218,14 +169,21 @@ namespace WPF_2_
         }
         private void ListBoxC1_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            
-            // MessageBox.Show(ListBoxC1.ActualHeight.ToString());
             foreach (Label LBC1 in ListBoxC1.Items)
             {
                 LBC1.Width = ListBoxC1.ActualWidth - 30;
                 LBC1.Height = 100;
+                //MessageBox.Show((ActualWidth - (ActualWidth - _ScreenSizeWidth)).ToString());
+                if ( (ActualWidth - 16) == _ScreenSizeWidth && _CheckSize)
+                    _CheckSize = !_CheckSize;
+                if (ActualWidth < ((_ScreenSizeWidth * 84) / 100))
+                    _CheckSize = true;
+               Title = ActualWidth.ToString();
+
                 if (_CheckSize)
                 {
+                    ((TextBlock)((Grid)LBC1.Content).Children[4]).Text = ((TextBlock)((Grid)LBC1.Content).Children[4]).Text.Substring(0, 3);
+                    ((TextBlock)((Grid)LBC1.Content).Children[6]).Text = ((TextBlock)((Grid)LBC1.Content).Children[6]).Text.Substring(0, 3);
                     Grid.SetColumnSpan(((Ellipse)((Grid)LBC1.Content).Children[0]), 8);
                     Grid.SetColumn(((TextBlock)((Grid)LBC1.Content).Children[1]), 8);
                     Grid.SetColumnSpan(((TextBlock)((Grid)LBC1.Content).Children[1]), 18);
@@ -233,17 +191,18 @@ namespace WPF_2_
                     Grid.SetColumnSpan(((TextBlock)((Grid)LBC1.Content).Children[2]), 18);
                     ((TextBlock)((Grid)LBC1.Content).Children[4]).Text = ((TextBlock)((Grid)LBC1.Content).Children[4]).Text.Substring(0, 3);
                     ((TextBlock)((Grid)LBC1.Content).Children[6]).Text = ((TextBlock)((Grid)LBC1.Content).Children[6]).Text.Substring(0, 3);
-
                 }
                 else
                 {
+                   
+                    ((TextBlock)((Grid)LBC1.Content).Children[4]).Text = "September";
+                    ((TextBlock)((Grid)LBC1.Content).Children[6]).Text = "Wednesday";
                     Grid.SetColumnSpan(((Ellipse)((Grid)LBC1.Content).Children[0]), 6);
                     Grid.SetColumn(((TextBlock)((Grid)LBC1.Content).Children[1]), 6);
                     Grid.SetColumnSpan(((TextBlock)((Grid)LBC1.Content).Children[1]), 20);
                     Grid.SetColumn(((TextBlock)((Grid)LBC1.Content).Children[2]), 6);
                     Grid.SetColumnSpan(((TextBlock)((Grid)LBC1.Content).Children[2]), 20);
-                    ((TextBlock)((Grid)LBC1.Content).Children[4]).Text = "September";
-                    ((TextBlock)((Grid)LBC1.Content).Children[6]).Text = "Wednesday";
+                  
                 }
             }
            _CheckSize = !_CheckSize;
@@ -255,7 +214,65 @@ namespace WPF_2_
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
             _CheckStatus();
+        }
+        public void _Status(bool _Look, Visibility _VISIB)
+        {
+            L_Save.IsEnabled = _Look;
+            L_Save.Visibility = _VISIB;
+            L_Color.IsEnabled = _Look;
+            L_Color.Visibility = _VISIB;
+            L_Bold.IsEnabled = _Look;
+            L_Bold.Visibility = _VISIB;
+            L_TextSize.IsEnabled = _Look;
+            L_TextSize.Visibility = _VISIB;
+            E_CircleFrame.IsEnabled = _Look;
+            E_CircleFrame.Visibility = _VISIB;
+            T_Title.IsEnabled = _Look;
+            T_Title.Visibility = _VISIB;
+            L_TimeTitle.IsEnabled = _Look;
+            L_TimeTitle.Visibility = _VISIB;
+            L_DateTitle.IsEnabled = _Look;
+            L_DateTitle.Visibility = _VISIB;
+            TextBoxBigTEXT_BLOB.IsEnabled = _Look;
+            TextBoxBigTEXT_BLOB.Visibility = _VISIB;
+            L_TimeFuture.IsEnabled = _Look;
+            L_TimeFuture.Visibility = _VISIB;
+            B_Plus.IsEnabled = _Look;
+            B_Plus.Visibility = _VISIB;
+            B_Minus.IsEnabled = _Look;
+            B_Minus.Visibility = _VISIB;
+            L_MonthFuture.IsEnabled = _Look;
+            L_MonthFuture.Visibility = _VISIB;
+            DP_DateFuture.IsEnabled = _Look;
+            DP_DateFuture.Visibility = _VISIB;
+        }
+        public void _CheckStatus()
+        {
+            foreach (Label LBC1 in ListBoxC1.Items)
+            {
+                LBC1.MouseLeftButtonDown += delegate (object Sender, MouseButtonEventArgs E)
+                {
+                    if (LBC1.IsMouseOver)
+                    {
+                        if (!L_Save.IsEnabled)
+                        {
+                            _Status(true, Visibility.Visible);
+                        }
+                    }
+                };
+                LBC1.MouseRightButtonDown += delegate (object Sender, MouseButtonEventArgs E)
+                {
+                    if (L_Save.IsEnabled)
+                    {
+                        _Status(false, Visibility.Hidden);
+                    }
+                };
+            }
+        }
 
+        private void ListBoxC1_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+           
         }
     }
 

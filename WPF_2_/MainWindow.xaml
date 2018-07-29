@@ -162,7 +162,7 @@
                 </Grid>
             </Grid>
         </Grid>
-        <ListBox x:Name="ListBoxC1" Grid.Column="2" SizeChanged="ListBoxC1_SizeChanged" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Cursor="Arrow"/>
+        <ListBox x:Name="ListBoxC1" Grid.Column="2" SizeChanged="ListBoxC1_SizeChanged" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Cursor="Arrow" MouseDown="ListBoxC1_MouseDown"/>
     </Grid>
 
 </Window>
