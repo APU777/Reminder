@@ -50,7 +50,7 @@ namespace WPF_2_
                 Ellipse O_Ellipse = new Ellipse();
                 O_Ellipse.Width = 80;
                 O_Ellipse.Height = 80;
-                O_Ellipse.Fill = new ImageBrush(new BitmapImage(new Uri(@"C:\Users\User\Desktop\Reminder\WPF_2_\Image\mrPcoZytokQ.jpg", UriKind.Relative)));
+                O_Ellipse.Fill = new ImageBrush(new BitmapImage(new Uri(@"C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\Image\mrPcoZytokQ.jpg", UriKind.Relative)));
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 TextBlock TBTitle = new TextBlock();
                 TBTitle.Text = "1234567891011121314151617181920";
@@ -173,14 +173,13 @@ namespace WPF_2_
             {
                 LBC1.Width = ListBoxC1.ActualWidth - 30;
                 LBC1.Height = 100;
-                //MessageBox.Show((ActualWidth - (ActualWidth - _ScreenSizeWidth)).ToString());
-              //  MessageBox.Show(_ScreenSizeWidth.ToString());
-               // MessageBox.Show(((int)ActualWidth - ((int)ActualWidth - _ScreenSizeWidth)).ToString());
 
                 if ( ((int)ActualWidth - ((int)ActualWidth - _ScreenSizeWidth)) == _ScreenSizeWidth && _CheckSize)
                     _CheckSize = !_CheckSize;
-                if (ActualWidth < ((_ScreenSizeWidth * 90) / 100))
+                if (ActualWidth < ((_ScreenSizeWidth * 98) / 100))
                     _CheckSize = true;
+
+
                Title = ActualWidth.ToString();
 
                 if (_CheckSize)
@@ -197,7 +196,6 @@ namespace WPF_2_
                 }
                 else
                 {
-                   
                     ((TextBlock)((Grid)LBC1.Content).Children[4]).Text = "September";
                     ((TextBlock)((Grid)LBC1.Content).Children[6]).Text = "Wednesday";
                     Grid.SetColumnSpan(((Ellipse)((Grid)LBC1.Content).Children[0]), 6);
@@ -205,7 +203,6 @@ namespace WPF_2_
                     Grid.SetColumnSpan(((TextBlock)((Grid)LBC1.Content).Children[1]), 20);
                     Grid.SetColumn(((TextBlock)((Grid)LBC1.Content).Children[2]), 6);
                     Grid.SetColumnSpan(((TextBlock)((Grid)LBC1.Content).Children[2]), 20);
-                  
                 }
             }
            _CheckSize = !_CheckSize;
