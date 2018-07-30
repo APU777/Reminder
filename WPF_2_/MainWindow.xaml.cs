@@ -22,7 +22,7 @@ namespace WPF_2_
     public partial class MainWindow : Window
     {
         private bool _CheckSize = false;
-        private int _ScreenSizeWidth = (int)SystemParameters.PrimaryScreenWidth;
+        private double _ScreenSizeWidth = SystemParameters.PrimaryScreenWidth;
         public MainWindow()
         {
             InitializeComponent();
@@ -50,7 +50,7 @@ namespace WPF_2_
                 Ellipse O_Ellipse = new Ellipse();
                 O_Ellipse.Width = 80;
                 O_Ellipse.Height = 80;
-                O_Ellipse.Fill = new ImageBrush(new BitmapImage(new Uri(@"C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\Image\mrPcoZytokQ.jpg", UriKind.Relative)));
+                O_Ellipse.Fill = new ImageBrush(new BitmapImage(new Uri(@"C:\Users\User\Desktop\Reminder\WPF_2_\Image\mrPcoZytokQ.jpg", UriKind.Relative)));
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 TextBlock TBTitle = new TextBlock();
                 TBTitle.Text = "1234567891011121314151617181920";
@@ -174,9 +174,12 @@ namespace WPF_2_
                 LBC1.Width = ListBoxC1.ActualWidth - 30;
                 LBC1.Height = 100;
                 //MessageBox.Show((ActualWidth - (ActualWidth - _ScreenSizeWidth)).ToString());
-                if ( (ActualWidth - 16) == _ScreenSizeWidth && _CheckSize)
+              //  MessageBox.Show(_ScreenSizeWidth.ToString());
+               // MessageBox.Show(((int)ActualWidth - ((int)ActualWidth - _ScreenSizeWidth)).ToString());
+
+                if ( ((int)ActualWidth - ((int)ActualWidth - _ScreenSizeWidth)) == _ScreenSizeWidth && _CheckSize)
                     _CheckSize = !_CheckSize;
-                if (ActualWidth < ((_ScreenSizeWidth * 84) / 100))
+                if (ActualWidth < ((_ScreenSizeWidth * 90) / 100))
                     _CheckSize = true;
                Title = ActualWidth.ToString();
 

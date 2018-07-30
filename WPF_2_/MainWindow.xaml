@@ -101,7 +101,7 @@
             </Grid>
             <Grid Grid.Row="1" ShowGridLines="False">
                 <Grid.Resources>
-                    <ImageBrush x:Key="IMG_CIRCLE" ImageSource="C:\Users\Admin\Desktop\mrPcoZytokQ.jpg">
+                    <ImageBrush x:Key="IMG_CIRCLE" ImageSource="C:\Users\User\Desktop\Reminder\WPF_2_\Image\mrPcoZytokQ.jpg">
                     </ImageBrush>
                     <Style TargetType="Label">
                         <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
