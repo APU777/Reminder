@@ -25,5 +25,49 @@
             </Setter.Value>
         </Setter>
     </Style>
- 
+    <Style x:Key="GlassButton" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Rectangle x:Name="Rectangle" RadiusX="26" RadiusY="80" Margin="0" Opacity="0.3">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientStop Offset="0.2" Color="Black"/>
+                                    <GradientStop Offset="1" Color="WhiteSmoke"/>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <ContentPresenter HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="Red"></Setter>
+                            <Setter Property="FontSize" Value="23"></Setter>
+                            <Setter TargetName="Rectangle" Property="Opacity" Value="5"/>
+                            <Setter TargetName="Rectangle" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect ShadowDepth="-3" Color="Red"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Rectangle" Property="Effect">
+                                <Setter.Value>
+                                    <BlurEffect Radius="5"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="Rectangle" Property="Margin" Value="2"/>
+                            <Setter TargetName="Rectangle" Property="Opacity" Value="5"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FontSize" Value="19" />
+        <Setter Property="FontFamily" Value="Impact"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Background" Value="Red"/>
+    </Style>
+
 </ResourceDictionary>

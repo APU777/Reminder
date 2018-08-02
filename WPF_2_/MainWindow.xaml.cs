@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace WPF_2_
 {
     /// <summary>
@@ -21,29 +22,30 @@ namespace WPF_2_
     /// </summary>
     public partial class MainWindow : Window
     {
-        private bool _CheckSize = false;
-        private double _ScreenSizeWidth = SystemParameters.PrimaryScreenWidth;
+        private bool _CheckSize = false; // Check size of the MainWindow.
+        private double _ScreenSizeWidth = SystemParameters.PrimaryScreenWidth; //Receives width of the screen.
+       
         public MainWindow()
         {
             InitializeComponent();
-            L_Bold.Visibility = Visibility.Hidden;
+
+
             ////////////////////////////////////
-            _Status(false, Visibility.Hidden);
+            _Status(false, Visibility.Hidden); // Here i turn off of the visibility status the text window.
             ///////////////////////////////////
             Title = "Reminder";
             for (int i = 0; i < 10; ++i)
             {
                 Grid grid = new Grid();
                 grid.ShowGridLines = false;
-                for(int j = 0; j < 30; ++j)
+                for(int j = 0; j < 30;/*Column*/ ++j)     //Creating GRID in Items on the ListBox.
                 {
-                    ColumnDefinition ColD = new ColumnDefinition();
-                    //ColD.Width = new GridLength(190, GridUnitType.Star);
-                    grid.ColumnDefinitions.Add(ColD);
+                    ColumnDefinition ColD = new ColumnDefinition(); //Creating Columns in the GRID.
+                    grid.ColumnDefinitions.Add(ColD); // Add column in the GRID.
                     if (j < 10)
                     {
-                        RowDefinition RowD = new RowDefinition();
-                        grid.RowDefinitions.Add(RowD);
+                        RowDefinition RowD = new RowDefinition(); //Creating Rows in the GRID.
+                        grid.RowDefinitions.Add(RowD); //Add row in the GRID.
                     }
                 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -142,18 +144,18 @@ namespace WPF_2_
                 grid.Children.Add(TBTxDay);
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 //grid.Background = Brushes.Blue;
-                Label d = new Label();
-                d.Background = Brushes.WhiteSmoke;
-                d.BorderBrush = Brushes.Black;
-                d.BorderThickness = new Thickness(5);
-                d.Content = grid;
-                d.HorizontalContentAlignment = HorizontalAlignment.Stretch;
+                Label L = new Label();
+                L.Background = Brushes.Snow;
+             //   d.BorderBrush = Brushes.Black;
+                L.BorderThickness = new Thickness(5);
+                L.Content = grid;
+                L.HorizontalContentAlignment = HorizontalAlignment.Stretch;
 
-                ListBoxC1.Items.Add(d);
+                ListBoxC1.Items.Add(L);
             }
         }
 
-        private void TextBox_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+        private void TextBox_Scroll(object sender, ScrollEventArgs e)
         {
 
         }
@@ -173,6 +175,7 @@ namespace WPF_2_
             {
                 LBC1.Width = ListBoxC1.ActualWidth - 30;
                 LBC1.Height = 100;
+                LBC1.Margin = new Thickness(2);
 
                 if ( ((int)ActualWidth - ((int)ActualWidth - _ScreenSizeWidth)) == _ScreenSizeWidth && _CheckSize)
                     _CheckSize = !_CheckSize;
@@ -209,8 +212,6 @@ namespace WPF_2_
         }
 
 
-
-   
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
             _CheckStatus();
@@ -274,7 +275,9 @@ namespace WPF_2_
         {
            
         }
+
+      
     }
 
-   
+
 }
