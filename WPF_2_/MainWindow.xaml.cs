@@ -24,135 +24,18 @@ namespace WPF_2_
     {
         private bool _CheckSize = false; // Check size of the MainWindow.
         private double _ScreenSizeWidth = SystemParameters.PrimaryScreenWidth; //Receives width of the screen.
-       
+        private bool _NotifyIconCheck = false; // Check size of the NotifyIcon(_NI)
+        private UseOneTime _USO = new UseOneTime();
         public MainWindow()
         {
-            InitializeComponent();
-
-
+            InitializeComponent();          
             ////////////////////////////////////
-            _Status(false, Visibility.Hidden); // Here i turn off of the visibility status the text window.
+            _Status(false, Visibility.Hidden); // Here i turn off of the visibility status for the text window.
             ///////////////////////////////////
             Title = "Reminder";
-            for (int i = 0; i < 10; ++i)
-            {
-                Grid grid = new Grid();
-                grid.ShowGridLines = false;
-                for(int j = 0; j < 30;/*Column*/ ++j)     //Creating GRID in Items on the ListBox.
-                {
-                    ColumnDefinition ColD = new ColumnDefinition(); //Creating Columns in the GRID.
-                    grid.ColumnDefinitions.Add(ColD); // Add column in the GRID.
-                    if (j < 10)
-                    {
-                        RowDefinition RowD = new RowDefinition(); //Creating Rows in the GRID.
-                        grid.RowDefinitions.Add(RowD); //Add row in the GRID.
-                    }
-                }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                Ellipse O_Ellipse = new Ellipse();
-                O_Ellipse.Width = 80;
-                O_Ellipse.Height = 80;
-                O_Ellipse.Fill = new ImageBrush(new BitmapImage(new Uri(@"C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\Image\mrPcoZytokQ.jpg", UriKind.Relative)));
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                TextBlock TBTitle = new TextBlock();
-                TBTitle.Text = "1234567891011121314151617181920";
-                TBTitle.FontFamily = new FontFamily("Comic Sans MS");
-                TBTitle.FontSize = 27;
-                TBTitle.TextWrapping = TextWrapping.Wrap;
-                //TBTitle.Background = Brushes.Yellow;
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                TextBlock TBText = new TextBlock();
-                TBText.Text = "1234567891011121314151617181920";
-                TBText.FontFamily = new FontFamily("Comic Sans MS");
-                TBText.FontSize = 15;
-                //TBText.Background = Brushes.Blue;
-                TBText.TextWrapping = TextWrapping.Wrap;
-                //  TBText.Width = 1000;
-                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                TextBlock TBYear = new TextBlock();
-                TBYear.Text = "2018";
-                TBYear.FontFamily = new FontFamily("Comic Sans MS");
-                TBYear.FontSize = 17;
-                TBYear.TextAlignment = TextAlignment.Center;
-                //TBYear.Background = Brushes.Pink;
-                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                TextBlock TBMonth = new TextBlock();
-                TBMonth.Text = "September";
-                TBMonth.FontFamily = new FontFamily("Comic Sans MS");
-                TBMonth.FontSize = 12;
-                TBMonth.FontWeight = FontWeights.Bold;
-                TBMonth.TextAlignment = TextAlignment.Center;
-               // TBMonth.Background = Brushes.Pink;
-                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                TextBlock TBDay = new TextBlock();
-                TBDay.Text = "30";
-                TBDay.FontFamily = new FontFamily("Comic Sans MS");
-                TBDay.FontSize = 20;
-                TBDay.FontWeight = FontWeights.Bold;
-                TBDay.TextAlignment = TextAlignment.Center;
-             //   TBDay.Background = Brushes.Pink;
-                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                TextBlock TBTxDay = new TextBlock();
-                TBTxDay.Text = "Wednesday";
-                TBTxDay.FontFamily = new FontFamily("Comic Sans MS");
-                TBTxDay.FontSize = 12;
-                TBTxDay.FontWeight = FontWeights.Bold;
-                TBTxDay.TextAlignment = TextAlignment.Center;
-              //  TBTxDay.Background = Brushes.Pink;
-                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                Grid.SetRow(O_Ellipse, 0);
-                Grid.SetRowSpan(O_Ellipse, 10);
-                Grid.SetColumn(O_Ellipse, 0);
-                Grid.SetColumnSpan(O_Ellipse, 6);
-                /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-                Grid.SetRow(TBTitle, 0);
-                Grid.SetRowSpan(TBTitle, 5);
-                Grid.SetColumn(TBTitle, 6);
-                Grid.SetColumnSpan(TBTitle, 20);
-                /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-                Grid.SetRow(TBText, 5);
-                Grid.SetRowSpan(TBText, 5);
-                Grid.SetColumn(TBText, 6);
-                Grid.SetColumnSpan(TBText, 20);
-                /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-                Grid.SetRow(TBYear, 0);
-                Grid.SetRowSpan(TBYear, 3);
-                Grid.SetColumn(TBYear, 26);
-                Grid.SetColumnSpan(TBYear, 4);
-                /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-                Grid.SetRow(TBMonth, 3);
-                Grid.SetRowSpan(TBMonth, 3);
-                Grid.SetColumn(TBMonth, 26);
-                Grid.SetColumnSpan(TBMonth, 4);
-                /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-                Grid.SetRow(TBDay, 5);
-                Grid.SetRowSpan(TBDay, 3);
-                Grid.SetColumn(TBDay, 26);
-                Grid.SetColumnSpan(TBDay, 4);
-                /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-                Grid.SetRow(TBTxDay, 8);
-                Grid.SetRowSpan(TBTxDay, 2);
-                Grid.SetColumn(TBTxDay, 26);
-                Grid.SetColumnSpan(TBTxDay, 4);
-                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                grid.Children.Add(O_Ellipse);
-                grid.Children.Add(TBTitle);
-                grid.Children.Add(TBText);
-                grid.Children.Add(TBYear);
-                grid.Children.Add(TBMonth);
-                grid.Children.Add(TBDay);
-                grid.Children.Add(TBTxDay);
-                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                //grid.Background = Brushes.Blue;
-                Label L = new Label();
-                L.Background = Brushes.Snow;
-             //   d.BorderBrush = Brushes.Black;
-                L.BorderThickness = new Thickness(5);
-                L.Content = grid;
-                L.HorizontalContentAlignment = HorizontalAlignment.Stretch;
+            ///////////////////////////////////
 
-                ListBoxC1.Items.Add(L);
-            }
+            _USO.CreateGRID(_ROW:10, _COLUMN:30, _ListBox:ListBoxC1);
         }
 
         private void TextBox_Scroll(object sender, ScrollEventArgs e)
@@ -176,15 +59,14 @@ namespace WPF_2_
                 LBC1.Width = ListBoxC1.ActualWidth - 30;
                 LBC1.Height = 100;
                 LBC1.Margin = new Thickness(2);
-
+                ///////////////////////////////////
                 if ( ((int)ActualWidth - ((int)ActualWidth - _ScreenSizeWidth)) == _ScreenSizeWidth && _CheckSize)
                     _CheckSize = !_CheckSize;
                 if (ActualWidth < ((_ScreenSizeWidth * 98) / 100))
                     _CheckSize = true;
-
-
-               Title = ActualWidth.ToString();
-
+                ///////////////////////////////////
+                Title = ActualWidth.ToString();
+                ///////////////////////////////////
                 if (_CheckSize)
                 {
                     ((TextBlock)((Grid)LBC1.Content).Children[4]).Text = ((TextBlock)((Grid)LBC1.Content).Children[4]).Text.Substring(0, 3);
@@ -276,7 +158,15 @@ namespace WPF_2_
            
         }
 
-      
+        private void _Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            _NotifyIconCheck = ActionsRM.CheckingClosing(e, this);
+            ActionsRM.NotifyIcon(this, _NotifyIconCheck);
+        }
+
+        private void _Window_StateChanged(object sender, EventArgs e)
+        {
+        }
     }
 
 

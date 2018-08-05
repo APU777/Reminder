@@ -37,7 +37,6 @@ C:\Users\Admin\Desktop\ReminderGit\WPF_2_\obj\Debug\WPF_2_.pdb
 C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\bin\Debug\WPF_2_.exe.config
 C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\bin\Debug\WPF_2_.exe
 C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\bin\Debug\WPF_2_.pdb
-C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\WPF_2_.csprojAssemblyReference.cache
 C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\MainWindow.g.cs
 C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\App.g.cs
 C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\WPF_2__MarkupCompile.cache
@@ -55,7 +54,6 @@ C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\W
 C:\Users\User\Desktop\Reminder\WPF_2_\bin\Debug\WPF_2_.exe.config
 C:\Users\User\Desktop\Reminder\WPF_2_\bin\Debug\WPF_2_.exe
 C:\Users\User\Desktop\Reminder\WPF_2_\bin\Debug\WPF_2_.pdb
-C:\Users\User\Desktop\Reminder\WPF_2_\obj\Debug\WPF_2_.csprojAssemblyReference.cache
 C:\Users\User\Desktop\Reminder\WPF_2_\obj\Debug\MainWindow.g.cs
 C:\Users\User\Desktop\Reminder\WPF_2_\obj\Debug\App.g.cs
 C:\Users\User\Desktop\Reminder\WPF_2_\obj\Debug\WPF_2__MarkupCompile.cache
@@ -70,3 +68,4 @@ C:\Users\User\Desktop\Reminder\WPF_2_\obj\Debug\WPF_2_.csproj.GenerateResource.c
 C:\Users\User\Desktop\Reminder\WPF_2_\obj\Debug\WPF_2_.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\Reminder\WPF_2_\obj\Debug\WPF_2_.exe
 C:\Users\User\Desktop\Reminder\WPF_2_\obj\Debug\WPF_2_.pdb
+C:\Users\User\Desktop\Reminder\WPF_2_\obj\Debug\WPF_2_.csprojAssemblyReference.cache
