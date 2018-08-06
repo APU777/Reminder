@@ -33,8 +33,7 @@ namespace WPF_2_
             _Status(false, Visibility.Hidden); // Here i turn off of the visibility status for the text window.
             ///////////////////////////////////
             Title = "Reminder";
-            ///////////////////////////////////
-
+            //////////////////////////////////
             _USO.CreateGRID(_ROW:10, _COLUMN:30, _ListBox:ListBoxC1);
         }
 
@@ -65,7 +64,7 @@ namespace WPF_2_
                 if (ActualWidth < ((_ScreenSizeWidth * 98) / 100))
                     _CheckSize = true;
                 ///////////////////////////////////
-                Title = ActualWidth.ToString();
+                //Title = ActualWidth.ToString();
                 ///////////////////////////////////
                 if (_CheckSize)
                 {
