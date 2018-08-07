@@ -27,7 +27,6 @@ namespace WPF_2_
                 System.Windows.Forms.NotifyIcon _NI = new System.Windows.Forms.NotifyIcon();
 
                 System.Windows.Forms.ContextMenu _CM = new System.Windows.Forms.ContextMenu();
-                //
 
                 ContextMenu_NI(_CM, _NI, _THIS);
 

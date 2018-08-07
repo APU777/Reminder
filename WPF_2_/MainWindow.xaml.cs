@@ -22,19 +22,23 @@ namespace WPF_2_
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool _ko = false;
         private bool _CheckSize = false; // Check size of the MainWindow.
         private double _ScreenSizeWidth = SystemParameters.PrimaryScreenWidth; //Receives width of the screen.
         private bool _NotifyIconCheck = false; // Check size of the NotifyIcon(_NI)
         private UseOneTime _USO = new UseOneTime();
         public MainWindow()
         {
-            InitializeComponent();          
-            ////////////////////////////////////
-            _Status(false, Visibility.Hidden); // Here i turn off of the visibility status for the text window.
+            InitializeComponent();
+
+           
+                ////////////////////////////////////
+                _Status(false, Visibility.Hidden); // Here i turn off of the visibility status for the text window.
             ///////////////////////////////////
             Title = "Reminder";
             //////////////////////////////////
             _USO.CreateGRID(_ROW:10, _COLUMN:30, _ListBox:ListBoxC1);
+
         }
 
         private void TextBox_Scroll(object sender, ScrollEventArgs e)
@@ -165,6 +169,17 @@ namespace WPF_2_
 
         private void _Window_StateChanged(object sender, EventArgs e)
         {
+        }
+
+        private void E_CircleFrame_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            using (System.Windows.Forms.FileDialog _FD = new System.Windows.Forms.OpenFileDialog())
+            {
+                _FD.ShowDialog();
+                ((ImageBrush)_RGrid.Resources["IMG_CIRCLE"]).ImageSource = new BitmapImage(new Uri(_FD.FileName));
+                
+            }
+            
         }
     }
 
