@@ -65,8 +65,7 @@
             </Grid>
             <Grid x:Name="_RGrid" Grid.Row="1" ShowGridLines="False">
                 <Grid.Resources>
-                    <ImageBrush x:Name="IBCircle" x:Key="IMG_CIRCLE" ImageSource="Image\mrPcoZytokQ.jpg">
-                    </ImageBrush>
+                    <ImageBrush x:Key="IMG_CIRCLE" ImageSource="Image\mrPcoZytokQ.jpg"/>
                     <Style TargetType="Label">
                         <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
                         <Setter Property="HorizontalAlignment" Value="Center"></Setter>
@@ -82,10 +81,28 @@
                     <ColumnDefinition Width="135*"></ColumnDefinition>
                     <ColumnDefinition Width="30*"/>
                 </Grid.ColumnDefinitions>
-                <Ellipse x:Name="E_CircleFrame" Fill="{DynamicResource IMG_CIRCLE}" Grid.Row="0" Grid.RowSpan="2" Stroke="Black" MouseUp="E_CircleFrame_MouseUp"/>
+                <Ellipse x:Name="E_CircleFrame" Fill="{DynamicResource IMG_CIRCLE}" Grid.Row="0" Grid.RowSpan="2"  MouseUp="E_CircleFrame_MouseUp" RenderTransformOrigin="0.5,0.5" >
+                    <Ellipse.Stroke>
+                        <SolidColorBrush x:Name="StrokeColor" Color="Black"/>
+                    </Ellipse.Stroke>
+                    <Ellipse.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard  x:Name="EllipseSB">
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="StrokeThickness" To="100"/>
+                                    <ColorAnimation Storyboard.TargetName="StrokeColor" Storyboard.TargetProperty="Color" To="DarkOrange"/>
+                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" To="0"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <StopStoryboard BeginStoryboardName="EllipseSB"/>
+                        </EventTrigger>
+                    </Ellipse.Triggers>
+                </Ellipse>
                 <Label x:Name="L_TimeTitle" Grid.Column="2" Grid.Row="0" Content="23:23" FontSize="18" Margin="0,4,3,4" HorizontalAlignment="Right" Width="59"/>
                 <Label x:Name="L_DateTitle" Grid.Column="2" Grid.Row="1" Content="12.12.2018" FontSize="12" FontFamily="Impact" Margin="6,4,2,4" HorizontalAlignment="Right"/>
-                <TextBox x:Name="T_Title" Grid.Column="1" Grid.RowSpan="2" Text="123" FontSize="65" FontFamily="Comic Sans MS" Grid.ColumnSpan="2" Margin="2,0,66,0"></TextBox>
+                <TextBox x:Name="T_Title" Grid.Column="1" Grid.RowSpan="2" Text="123" FontSize="65" FontFamily="Comic Sans MS" Grid.ColumnSpan="2" Margin="0,0,66,0"></TextBox>
             </Grid>
             <Grid Grid.Row="2">
                 <TextBox x:Name="TextBoxBigTEXT_BLOB" FontFamily="Comic Sans MS" FontSize="15" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" ></TextBox>

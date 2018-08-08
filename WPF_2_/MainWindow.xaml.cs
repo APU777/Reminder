@@ -30,10 +30,10 @@ namespace WPF_2_
         public MainWindow()
         {
             InitializeComponent();
-
-           
-                ////////////////////////////////////
-                _Status(false, Visibility.Hidden); // Here i turn off of the visibility status for the text window.
+            
+ 
+            ////////////////////////////////////
+            _Status(false, Visibility.Hidden); // Here i turn off of the visibility status for the text window.
             ///////////////////////////////////
             Title = "Reminder";
             //////////////////////////////////
@@ -172,14 +172,23 @@ namespace WPF_2_
         }
 
         private void E_CircleFrame_MouseUp(object sender, MouseButtonEventArgs e)
-        {
+        {   
             using (System.Windows.Forms.FileDialog _FD = new System.Windows.Forms.OpenFileDialog())
             {
+                ImageBrush _BUFFER = ((ImageBrush)_RGrid.Resources["IMG_CIRCLE"]);
+                _FD.Filter = "(*.jpg)|*.jpg|(*.png)|*.png";
                 _FD.ShowDialog();
-                ((ImageBrush)_RGrid.Resources["IMG_CIRCLE"]).ImageSource = new BitmapImage(new Uri(_FD.FileName));
-                
+                try
+                {
+                    if (_FD.FileName.Length != 0)
+                        ((ImageBrush)_RGrid.Resources["IMG_CIRCLE"]).ImageSource = new BitmapImage(new Uri(_FD.FileName));
+                }
+                catch
+                {
+                    ((ImageBrush)_RGrid.Resources["IMG_CIRCLE"]).ImageSource = _BUFFER.ImageSource;
+                }
+
             }
-            
         }
     }
 
