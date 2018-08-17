@@ -100,6 +100,8 @@ namespace WPF_2_
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
             _CheckStatus();
+            //if (StrokeColor.Color != Colors.Black)
+            //    MessageBox.Show("777");
         }
         public void _Status(bool _Look, Visibility _VISIB)
         {
@@ -189,6 +191,20 @@ namespace WPF_2_
                 }
 
             }
+        }
+
+        private void E_CircleFrame_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            Label _ChangeImage = new Label();
+            Ellipse _CIEllipse = new Ellipse();
+            _CIEllipse.Width = 30;
+            _CIEllipse.Height = 30;
+            _CIEllipse.Fill = Brushes.Red;
+             
+            _ChangeImage.Content = _CIEllipse;
+           
+            Grid.SetRow(_ChangeImage, 1);
+            _RGrid.Children.Add(_ChangeImage);
         }
     }
 

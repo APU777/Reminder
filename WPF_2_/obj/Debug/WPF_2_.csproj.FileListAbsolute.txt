@@ -70,3 +70,5 @@ C:\Users\User\Desktop\Reminder\WPF_2_\obj\Debug\WPF_2_.exe
 C:\Users\User\Desktop\Reminder\WPF_2_\obj\Debug\WPF_2_.pdb
 C:\Users\User\Desktop\Reminder\WPF_2_\obj\Debug\WPF_2_.csprojAssemblyReference.cache
 C:\Users\Admin\Documents\Visual Studio 2017\Projects\Reminder\WPF_2_\obj\Debug\WPF_2_.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Reminder\WPF_2_\obj\Debug\VS2012WindowStyle.baml
+C:\Users\User\Desktop\Reminder\WPF_2_\obj\Debug\VS2012WindowStyle.g.cs
