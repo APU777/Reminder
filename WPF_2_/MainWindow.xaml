@@ -82,7 +82,7 @@
                     <ColumnDefinition Width="135*"></ColumnDefinition>
                     <ColumnDefinition Width="30*"/>
                 </Grid.ColumnDefinitions>
-                <Ellipse x:Name="E_CircleFrame" Fill="{DynamicResource IMG_CIRCLE}" Grid.Row="0" Grid.RowSpan="2"  MouseUp="E_CircleFrame_MouseUp" RenderTransformOrigin="0.5,0.5" IsMouseDirectlyOverChanged="E_CircleFrame_IsMouseDirectlyOverChanged" >
+                <Ellipse x:Name="E_CircleFrame" Fill="{DynamicResource IMG_CIRCLE}" Grid.Row="0" Grid.RowSpan="2"  MouseUp="E_CircleFrame_MouseUp" RenderTransformOrigin="0.5,0.5" IsMouseDirectlyOverChanged="E_CircleFrame_IsMouseDirectlyOverChanged">
                     <Ellipse.Stroke>
                         <SolidColorBrush x:Name="StrokeColor" Color="Black"/>
                     </Ellipse.Stroke>

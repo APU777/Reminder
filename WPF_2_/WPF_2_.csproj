@@ -75,6 +75,7 @@
     <Compile Include="ActionsRM.cs" />
     <Compile Include="UseOneTime.cs" />
     <Compile Include="VS2012WindowStyle.cs" />
+    <Compile Include="WorkShopAction.cs" />
     <Page Include="Dictionary1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

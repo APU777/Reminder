@@ -22,23 +22,24 @@ namespace WPF_2_
     /// </summary>
     public partial class MainWindow : Window
     {
-        private bool _ko = false;
+        private bool _ImageEllipse = false;
         private bool _CheckSize = false; // Check size of the MainWindow.
         private double _ScreenSizeWidth = SystemParameters.PrimaryScreenWidth; //Receives width of the screen.
         private bool _NotifyIconCheck = false; // Check size of the NotifyIcon(_NI)
         private UseOneTime _USO = new UseOneTime();
+        private Label _ChangeImage = new Label();
+        private Ellipse _CIEllipse = new Ellipse();
+
         public MainWindow()
         {
             InitializeComponent();
-            
- 
             ////////////////////////////////////
             _Status(false, Visibility.Hidden); // Here i turn off of the visibility status for the text window.
             ///////////////////////////////////
             Title = "Reminder";
             //////////////////////////////////
-            _USO.CreateGRID(_ROW:10, _COLUMN:30, _ListBox:ListBoxC1);
-
+            _USO.CreateGRID(_ROW: 10, _COLUMN: 30, _ListBox: ref ListBoxC1);
+            _USO.CreateEllipseLabelGRID(_Ellipse: ref _CIEllipse, _CI: ref _ChangeImage, _Grid: ref _RGrid);
         }
 
         private void TextBox_Scroll(object sender, ScrollEventArgs e)
@@ -165,8 +166,8 @@ namespace WPF_2_
 
         private void _Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            _NotifyIconCheck = ActionsRM.CheckingClosing(e, this);
-            ActionsRM.NotifyIcon(this, _NotifyIconCheck);
+            _NotifyIconCheck = ActionsRM.CheckingClosing(ref e, this);
+            ActionsRM.NotifyIcon(this, ref _NotifyIconCheck);
         }
 
         private void _Window_StateChanged(object sender, EventArgs e)
@@ -192,19 +193,13 @@ namespace WPF_2_
 
             }
         }
-
         private void E_CircleFrame_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            Label _ChangeImage = new Label();
-            Ellipse _CIEllipse = new Ellipse();
-            _CIEllipse.Width = 30;
-            _CIEllipse.Height = 30;
-            _CIEllipse.Fill = Brushes.Red;
-             
-            _ChangeImage.Content = _CIEllipse;
-           
-            Grid.SetRow(_ChangeImage, 1);
-            _RGrid.Children.Add(_ChangeImage);
+            _ImageEllipse = !_ImageEllipse;
+            if (_ImageEllipse)
+            {
+
+            }
         }
     }
 

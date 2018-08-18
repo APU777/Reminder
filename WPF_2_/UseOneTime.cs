@@ -19,7 +19,7 @@ namespace WPF_2_
 {
     class UseOneTime
     {
-        public void CreateGRID(int _ROW, int _COLUMN, ListBox _ListBox)
+        public void CreateGRID(int _ROW, int _COLUMN, ref ListBox _ListBox)
         {
             for (int i = 0; i < 10; ++i)
             {
@@ -142,6 +142,14 @@ namespace WPF_2_
             }
 
         }
-
+        public void CreateEllipseLabelGRID(ref Ellipse _Ellipse, ref Label _CI, ref Grid _Grid)
+        {
+                _Ellipse.Width = 30;
+                _Ellipse.Height = 30;
+                _Ellipse.Fill = Brushes.Red;
+                _Ellipse.Visibility = Visibility.Hidden;
+                _CI.Content = _Ellipse;
+                _Grid.Children.Add(_CI);
+        }
     }
 }
