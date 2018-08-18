@@ -144,12 +144,19 @@ namespace WPF_2_
         }
         public void CreateEllipseLabelGRID(ref Ellipse _Ellipse, ref Label _CI, ref Grid _Grid)
         {
+            if (_Grid == null)
+            {
+                throw new ArgumentNullException(nameof(_Grid));
+            }
+
                 _Ellipse.Width = 30;
                 _Ellipse.Height = 30;
                 _Ellipse.Fill = Brushes.Red;
                 _Ellipse.Visibility = Visibility.Hidden;
                 _CI.Content = _Ellipse;
                 _Grid.Children.Add(_CI);
+            Grid.SetRow(_CI, 0);
+            Grid.SetRowSpan(_CI, 2);
         }
     }
 }

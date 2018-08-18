@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -22,17 +23,21 @@ namespace WPF_2_
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Timer _Timer;
         private bool _ImageEllipse = false;
         private bool _CheckSize = false; // Check size of the MainWindow.
         private double _ScreenSizeWidth = SystemParameters.PrimaryScreenWidth; //Receives width of the screen.
         private bool _NotifyIconCheck = false; // Check size of the NotifyIcon(_NI)
         private UseOneTime _USO = new UseOneTime();
         private Label _ChangeImage = new Label();
-        private Ellipse _CIEllipse = new Ellipse();
+        public Ellipse _CIEllipse = new Ellipse();
+
+        public Timer Timer { get => _Timer; set => _Timer = value; }
 
         public MainWindow()
         {
             InitializeComponent();
+
             ////////////////////////////////////
             _Status(false, Visibility.Hidden); // Here i turn off of the visibility status for the text window.
             ///////////////////////////////////
@@ -196,10 +201,9 @@ namespace WPF_2_
         private void E_CircleFrame_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             _ImageEllipse = !_ImageEllipse;
-            if (_ImageEllipse)
-            {
-
-            }
+ 
+            ActionsRM.ImageEllipseLabel(out _Timer, ref _ChangeImage, ref _ImageEllipse);
+           // _Timer.Stop();
         }
     }
 

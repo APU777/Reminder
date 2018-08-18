@@ -14,7 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
- 
+using System.Timers;
+
 namespace WPF_2_
 {
     internal static partial class ActionsRM
@@ -54,6 +55,14 @@ namespace WPF_2_
             }
             return false;
         }       
+        public static void ImageEllipseLabel(out Timer _T, ref Label _CI, ref bool _IE)
+        {
+            WorkShopAction.Timer(_T: out _T, _CI: ref _CI, _IE: ref _IE);
+
+
+        }
+
+     
     }
 
 

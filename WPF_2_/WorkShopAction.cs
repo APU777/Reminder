@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Shapes;
 
 namespace WPF_2_
 {
     internal static partial class WorkShopAction
     {
+        
         public static void ContextMenu_NI(System.Windows.Forms.ContextMenu _CM, System.Windows.Forms.NotifyIcon _NotifyIcon, MainWindow _THIS)
         {
             System.Windows.Forms.MenuItem _MI = new System.Windows.Forms.MenuItem();
@@ -32,7 +36,24 @@ namespace WPF_2_
                 ShowW_NIoff(_NotifyIcon, _THIS);
             };
         }
+        public static void Timer(out Timer _T, ref Label _CI, ref bool _IE)
+        {
+            _T = new Timer(2000);
+            _T.Enabled = true;
+            _T.Elapsed += EllipseVisible_Tick;
+            _T.AutoReset = false;
+            _T.Start();
+        }
 
+        private static void EllipseVisible_Tick(object Sender, ElapsedEventArgs E)
+        {
+            MessageBox.Show("The Elapsed event was raised at { " + E.SignalTime.ToString() + " }");            //MainWindow _MW = new MainWindow();
+
+            //if (_MW._Im)
+            //    _MW._CIEllipse.Visibility = Visibility.Visible;
+            //else
+            //   _MW._CIEllipse.Visibility = Visibility.Hidden;
+        }
         private static void ShowW_NIoff(System.Windows.Forms.NotifyIcon _NotifyIcon, MainWindow _THIS)
         {
             _THIS.Show();
