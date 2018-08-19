@@ -49,23 +49,24 @@ namespace WPF_2_
                     _E.Cancel = true;
                     return false;
                 }
-                    _E.Cancel = true; // Cancel close the window.
-                    _THIS.Hide(); // Hide _THIS.%Window.
-                    return true;
+                _E.Cancel = true; // Cancel close the window.
+                _THIS.Hide(); // Hide _THIS.%Window.
+                return true;
             }
             return false;
-        }       
+        }
         public static void Pause_ImageEllipseLabel(out System.Windows.Threading.DispatcherTimer _T, Label _CI)
         {
             _T = new System.Windows.Threading.DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
-           
+
             if (WorkShopAction.CheckEllipseLabel_Turn(_CI))
             {
-                    WorkShopAction.Pause_ForCreate(_T: _T, () => WorkShopAction.EllipseLABEL_TurnOn(_ChangeImageEllipse: _CI));
+                WorkShopAction.Pause_ForCreate(_T: _T, () => WorkShopAction.EllipseLABEL_TurnOn(_ChangeImageEllipse: _CI));
             }
             else
-                    WorkShopAction.EllipseLABEL_TurnOff(_ChangeImageEllipse: _CI, _Timer: _T);
+                WorkShopAction.EllipseLABEL_TurnOff(_ChangeImageEllipse: _CI, _Timer: _T);
         }
 
 
     }
+}
