@@ -24,13 +24,13 @@ namespace WPF_2_
     public partial class MainWindow : Window
     {
         private Timer _Timer;
-        private bool _ImageEllipse = false;
+        private bool _CheckImageEllipse = true;
         private bool _CheckSize = false; // Check size of the MainWindow.
         private double _ScreenSizeWidth = SystemParameters.PrimaryScreenWidth; //Receives width of the screen.
         private bool _NotifyIconCheck = false; // Check size of the NotifyIcon(_NI)
         private UseOneTime _USO = new UseOneTime();
         private Label _ChangeImage = new Label();
-        public Ellipse _CIEllipse = new Ellipse();
+        private Ellipse _CIEllipse = new Ellipse();
 
         public Timer Timer { get => _Timer; set => _Timer = value; }
 
@@ -198,12 +198,36 @@ namespace WPF_2_
 
             }
         }
+
         private void E_CircleFrame_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            _ImageEllipse = !_ImageEllipse;
- 
-            ActionsRM.ImageEllipseLabel(out _Timer, ref _ChangeImage, ref _ImageEllipse);
-           // _Timer.Stop();
+
+            if (E_CircleFrame.IsMouseOver && _CheckImageEllipse)
+            {
+               
+                ActionsRM.Pause_ImageEllipseLabel(out _Timer, _ChangeImage, _CheckImageEllipse);
+                _CheckImageEllipse = false;
+            }
+            else if (!_CheckImageEllipse)
+            {
+
+                _Timer.Stop();
+                _CheckImageEllipse = true;
+            }
+            //++_i;
+            //if (_ImageEllipse)
+            //{
+            //    MessageBox.Show(_i.ToString());
+            //}
+            //else
+            //{
+            //    if (_Timer != null)
+            //    {
+            //        _Timer.Stop();
+
+                //    }
+                //    _i = 0;
+                //}
         }
     }
 
