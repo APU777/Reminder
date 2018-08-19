@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Timers;
+
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Shapes;
@@ -14,7 +14,6 @@ namespace WPF_2_
 {
     internal static partial class WorkShopAction
     {
-        static Label f;
 
         public static void ContextMenu_NI(System.Windows.Forms.ContextMenu _CM, System.Windows.Forms.NotifyIcon _NotifyIcon, MainWindow _THIS)
         {
@@ -39,32 +38,36 @@ namespace WPF_2_
                 ShowW_NIoff(_NotifyIcon, _THIS);
             };
         }
-        public static void Pause_ForCreate(out Timer _T,  Label _ChangeImageEllipse)
+        public static void Pause_ForCreate( System.Windows.Threading.DispatcherTimer _T,  Action _Method)
         {
-            f = _ChangeImageEllipse;
-            _T = new Timer(2000);
-             //_T.Elapsed += EllipseVisible_Tick;
-             _T.Elapsed += (sender, e) =>  ((Ellipse)f.Content).Visibility = Visibility.Visible;
-            _T.AutoReset = false;
+            _T.Tick += (sender, e) => _Method();
             _T.Start();
-
         }
-        private static void EllipseVisible_Tick(object Sender, ElapsedEventArgs E)
+        public static void Timer_Die(System.Windows.Threading.DispatcherTimer _Tr)
         {
-            if (Sender == null)
-            {
-                throw new ArgumentNullException(nameof(Sender));
-            }
-
-               MessageBox.Show("The Elapsed event was raised at { " + E.SignalTime.ToString() + " }");
-                MessageBox.Show("1");
-                ((Ellipse)f.Content).Visibility = Visibility.Visible;
-
-            //if (_MW._Im)
-            //    _MW._CIEllipse.Visibility = Visibility.Visible;
-            //else
-            //   _MW._CIEllipse.Visibility = Visibility.Hidden;
+            _Tr.Dispatcher.Invoke(new Action(delegate { _Tr.Stop(); }));
         }
+        public static void EllipseLABEL_TurnOff(Label _ChangeImageEllipse, System.Windows.Threading.DispatcherTimer _Timer)
+        {
+            ((Ellipse)_ChangeImageEllipse.Content).Visibility = Visibility.Hidden;
+
+            Timer_Die(_Timer);
+        }
+        public static void EllipseLABEL_TurnOn(Label _ChangeImageEllipse)
+        {
+            ((Ellipse)_ChangeImageEllipse.Content).Dispatcher.Invoke(new Action(delegate
+            {
+                ((Ellipse)_ChangeImageEllipse.Content).Visibility = Visibility.Visible;
+            }));
+        }
+        public static bool CheckEllipseLabel_Turn(Label _ChangeImageEllipse)
+        {
+            if (((Ellipse)_ChangeImageEllipse.Content).Visibility == Visibility.Visible)
+                return false;
+            return true;
+        }
+
+        /**********************************************************************************************************************************************************************************************/
         private static void ShowW_NIoff(System.Windows.Forms.NotifyIcon _NotifyIcon, MainWindow _THIS)
         {
             _THIS.Show();

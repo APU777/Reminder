@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Timers;
+
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -23,16 +23,13 @@ namespace WPF_2_
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Timer _Timer;
-        private bool _CheckImageEllipse = true;
+        private System.Windows.Threading.DispatcherTimer _Timer = null;
         private bool _CheckSize = false; // Check size of the MainWindow.
         private double _ScreenSizeWidth = SystemParameters.PrimaryScreenWidth; //Receives width of the screen.
         private bool _NotifyIconCheck = false; // Check size of the NotifyIcon(_NI)
         private UseOneTime _USO = new UseOneTime();
         private Label _ChangeImage = new Label();
         private Ellipse _CIEllipse = new Ellipse();
-
-        public Timer Timer { get => _Timer; set => _Timer = value; }
 
         public MainWindow()
         {
@@ -195,39 +192,23 @@ namespace WPF_2_
                 {
                     ((ImageBrush)_RGrid.Resources["IMG_CIRCLE"]).ImageSource = _BUFFER.ImageSource;
                 }
-
             }
         }
 
         private void E_CircleFrame_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-
-            if (E_CircleFrame.IsMouseOver && _CheckImageEllipse)
+            if (E_CircleFrame.IsMouseOver)
             {
-               
-                ActionsRM.Pause_ImageEllipseLabel(out _Timer, _ChangeImage);
-                _CheckImageEllipse = false;
+                ActionsRM.Pause_ImageEllipseLabel(_T: out _Timer, _CI: _ChangeImage);
             }
-            else if (!_CheckImageEllipse)
+            else
             {
-
-                _Timer.Stop();
-                _CheckImageEllipse = true;
+                if (_Timer != null)
+                {
+                    _CIEllipse.Visibility = Visibility.Hidden;
+                    _Timer.Stop();
+                }
             }
-            //++_i;
-            //if (_ImageEllipse)
-            //{
-            //    MessageBox.Show(_i.ToString());
-            //}
-            //else
-            //{
-            //    if (_Timer != null)
-            //    {
-            //        _Timer.Stop();
-
-                //    }
-                //    _i = 0;
-                //}
         }
     }
 

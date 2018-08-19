@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
-using System.Timers;
+
 
 namespace WPF_2_
 {
@@ -55,17 +55,17 @@ namespace WPF_2_
             }
             return false;
         }       
-        public static void Pause_ImageEllipseLabel(out Timer _T, Label _CI)
+        public static void Pause_ImageEllipseLabel(out System.Windows.Threading.DispatcherTimer _T, Label _CI)
         {
-            
-          
-            WorkShopAction.Pause_ForCreate(_T: out _T, _ChangeImageEllipse:  _CI);
-
+            _T = new System.Windows.Threading.DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
+           
+            if (WorkShopAction.CheckEllipseLabel_Turn(_CI))
+            {
+                    WorkShopAction.Pause_ForCreate(_T: _T, () => WorkShopAction.EllipseLABEL_TurnOn(_ChangeImageEllipse: _CI));
+            }
+            else
+                    WorkShopAction.EllipseLABEL_TurnOff(_ChangeImageEllipse: _CI, _Timer: _T);
         }
 
-     
+
     }
-
-
-
-}
