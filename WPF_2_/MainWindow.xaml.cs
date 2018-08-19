@@ -205,7 +205,7 @@ namespace WPF_2_
             if (E_CircleFrame.IsMouseOver && _CheckImageEllipse)
             {
                
-                ActionsRM.Pause_ImageEllipseLabel(out _Timer, _ChangeImage, _CheckImageEllipse);
+                ActionsRM.Pause_ImageEllipseLabel(out _Timer, _ChangeImage);
                 _CheckImageEllipse = false;
             }
             else if (!_CheckImageEllipse)

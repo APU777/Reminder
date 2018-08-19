@@ -55,7 +55,7 @@ namespace WPF_2_
             }
             return false;
         }       
-        public static void Pause_ImageEllipseLabel(out Timer _T, Label _CI, ref bool _IE)
+        public static void Pause_ImageEllipseLabel(out Timer _T, Label _CI)
         {
             
           

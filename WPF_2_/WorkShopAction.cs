@@ -39,7 +39,7 @@ namespace WPF_2_
                 ShowW_NIoff(_NotifyIcon, _THIS);
             };
         }
-        public static void Pause_ForCreate(out Timer _T,  ref Label _ChangeImageEllipse)
+        public static void Pause_ForCreate(out Timer _T,  Label _ChangeImageEllipse)
         {
             f = _ChangeImageEllipse;
             _T = new Timer(2000);
